@@ -3,7 +3,11 @@
   <div class="d-flex mt-4">
 
     <div class="w-50">
-    <img src="https://images.riverisland.com/image/upload/t_ProductImagePortraitLarge/909319_main?$ProductListingPortrait$" alt="Dress" class="img-fluid rounded-4">
+      <% if @item.photo.attached? %>
+        <%= cl_image_tag @item.photo.key, height: 400, width: 400, crop: :fill %>
+      <% else %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" alt="No image available" class="img-fluid img-thumbnail rounded-4">
+      <% end %>
     </div>
 
     <div class="card w-50 px-4 border border-0">
@@ -12,7 +16,7 @@
         <h5 class="pb-4 fw-lighter text-muted">Brand: <%= @item.brand %></h5>
         <h5 class="pb-4 fw-lighter text-muted">Size: <%= @item.size %></h5>
         <h5 class="pb-4 fw-light">Rent from: EUR <%= @item.price %> / day</h5>
-        <p class="pb-4 text-muted">Description we don't have yet</p>
+        <p class="pb-4 text-muted"><%= @item.description %></p>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal">

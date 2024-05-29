@@ -1,0 +1,10 @@
+<div class="container bs5-grid-row">
+  <%= simple_form_for [@item] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :brand %>
+    <%= f.input :size, :collection => %w[XS S M L XL XXL] %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>

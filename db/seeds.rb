@@ -10,6 +10,7 @@
 require "open-uri"
 
 puts "Cleaning database..."
+Item.all.each {|item| item.photo.purge}
 Item.destroy_all
 User.destroy_all
 

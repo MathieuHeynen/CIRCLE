@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    redirect_to item_path(@item)
   end
 
   private

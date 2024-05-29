@@ -28,11 +28,19 @@ trouser = Item.new(name: "trousers", brand: "COS", size: "M", price: "10", user:
 shirt = Item.new(name: "shirt", brand: "COS", size: "M", price: "10", user: user)
 jacket = Item.new(name: "jacket", brand: "COS", size: "M", price: "10", user: user)
 shoes = Item.new(name: "shoes", brand: "COS", size: "M", price: "10", user: user)
+trouser1 = Item.new(name: "trousers", brand: "COS", size: "M", price: "10", user: user)
+shirt1 = Item.new(name: "shirt", brand: "COS", size: "M", price: "10", user: user)
+jacket1 = Item.new(name: "jacket", brand: "COS", size: "M", price: "10", user: user)
+shoes1 = Item.new(name: "shoes", brand: "COS", size: "M", price: "10", user: user)
 
 trouser.photo.attach(io: file, filename: "trousers.jpg", content_type: "image/jpg")
 shirt.photo.attach(io: file_one, filename: "shirt.jpg", content_type: "image/jpg")
 jacket.photo.attach(io: file_two, filename: "jacket.jpg", content_type: "image/jpg")
 shoes.photo.attach(io: file_three, filename: "shoes.jpg", content_type: "image/jpg")
+trouser1.photo.attach(io: file, filename: "trousers.jpg", content_type: "image/jpg")
+shirt1.photo.attach(io: file_one, filename: "shirt.jpg", content_type: "image/jpg")
+jacket1.photo.attach(io: file_two, filename: "jacket.jpg", content_type: "image/jpg")
+shoes1.photo.attach(io: file_three, filename: "shoes.jpg", content_type: "image/jpg")
 
 trouser.save!
 shirt.save!

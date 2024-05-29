@@ -1,6 +1,22 @@
 <div class="container">
-  <h1>Look at this beautiful item</h1>
 
-  <%= @item.name %>
+  <div class="d-flex mt-4">
+
+    <div class="w-50">
+    <img src="https://images.riverisland.com/image/upload/t_ProductImagePortraitLarge/909319_main?$ProductListingPortrait$" alt="Dress" class="img-fluid">
+    </div>
+
+    <div class="card w-50 px-4 border border-0">
+      <div class="card-body">
+        <h2 class="pb-4 mt-0"><%= @item.name.capitalize %></h2>
+        <h5 class="pb-4 fw-lighter text-muted">Brand: <%= @item.brand %></h5>
+        <h5 class="pb-4 fw-lighter text-muted">Size: <%= @item.size %></h5>
+        <h5 class="pb-4 fw-light">Rent from: EUR <%= @item.price %> / day</h5>
+        <p class="pb-4 text-muted">Description we don't have yet</p>
+        <p class="btn btn-dark rounded-4">Request rental</p>
+      </div>
+    </div>
+
+  </div>
 
 </div>

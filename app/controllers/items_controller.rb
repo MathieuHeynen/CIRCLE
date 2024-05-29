@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    redirect_to item_path(@item)
   end
 
   private
@@ -29,6 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :brand, :size, :price)
+    params.require(:item).permit(:name, :brand, :size, :price, :photo, :description)
   end
 end

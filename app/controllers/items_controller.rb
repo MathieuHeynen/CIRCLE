@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show]
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @items = Item.all
   end
@@ -28,6 +30,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :brand, :size, :price)
+    params.require(:item).permit(:name, :brand, :size, :price, :photo, :description)
   end
 end

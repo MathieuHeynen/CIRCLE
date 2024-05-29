@@ -1,43 +1,44 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-4">
-  <div class="container-fluid py-0">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <div class='d-flex align-items-center justify-content-center'>
-        <%= image_tag "CIRCLE_logo.png"%>
-        <p class="m-0 ps-4">CIRCLE</p>
-      </div>
-    <% end %>
+<div class=container>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-4 px-0">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <div class='d-flex align-items-center justify-content-center'>
+          <%= image_tag "CIRCLE_logo.png"%>
+          <p class="m-0 ps-4">CIRCLE</p>
+        </div>
+      <% end %>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%# Add the my dashboard or my profile link here in the link_to %>
-            <%= link_to "#{current_user.username}", root_path, class: "nav-link pe-4 text-dark" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://www.caribbeannationalweekly.com/wp-content/uploads/2020/09/Female-Avatar-300X300-01.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Lend item", "/items/new" , class: "dropdown-item" %>
-              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%# Add the my dashboard or my profile link here in the link_to %>
+              <%= link_to "#{current_user.username}", root_path, class: "nav-link pe-4 text-dark" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://www.caribbeannationalweekly.com/wp-content/uploads/2020/09/Female-Avatar-300X300-01.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Lend item", "/items/new" , class: "dropdown-item" %>
+                <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% else %>
+            <div class="d-flex">
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link text-dark pe-4 text-decoration-none" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path, class: "btn btn-dark rounded-4" %>
+              </li>
             </div>
-          </li>
-        <% else %>
-          <div class="d-flex">
-            <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link text-dark pe-4 text-decoration-none" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: "btn btn-dark rounded-4" %>
-            </li>
-          </div>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

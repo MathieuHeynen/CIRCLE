@@ -8,13 +8,17 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+puts "Cleaning database..."
+Item.destroy_all
+User.destroy_all
+
 puts "Creating users..."
 
-user = User.create!(email: "aika@aika.com", password: "123456")
+user = User.create!(email: "test@test.com", password: "123456")
 
 puts "Creating items..."
 
-Item.create!(name: "trousers", brand: "COS", user: user)
-Item.create!(name: "shirt", brand: "COS", user: user)
+Item.create!(name: "trousers", brand: "COS", size: "M", price: "10", user: user)
+Item.create!(name: "shirt", brand: "COS", size: "M", price: "10", user: user)
 
 puts "Finished!"

@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "open-uri"
-
 puts "Cleaning database..."
 Item.all.each {|item| item.photo.purge}
 Item.destroy_all
@@ -25,10 +24,10 @@ file_one = URI.open("./app/assets/images/dress2.jpg")
 file_two = URI.open("./app/assets/images/suit1.jpg")
 file_three = URI.open("./app/assets/images/suit2.jpg")
 
-trouser = Item.new(name: "dress", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
-shirt = Item.new(name: "dress", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
-jacket = Item.new(name: "suit", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
-shoes = Item.new(name: "suit", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
+trouser = Item.new(name: "Dress", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
+shirt = Item.new(name: "Dress", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
+jacket = Item.new(name: "Suit", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
+shoes = Item.new(name: "Suit", brand: "COS", size: "M", price: "10", description: "Great piece of clothing, in immaculate state. Be the best dressed guest at your next event", user: user)
 
 trouser.photo.attach(io: file, filename: "dress1.jpg", content_type: "image/jpg")
 shirt.photo.attach(io: file_one, filename: "dress2.jpg", content_type: "image/jpg")

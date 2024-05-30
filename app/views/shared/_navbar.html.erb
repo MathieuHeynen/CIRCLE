@@ -1,5 +1,5 @@
 <div class=container>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-4 px-0">
+  <div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon py-4 px-0">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
         <div class='d-flex align-items-center justify-content-center'>
@@ -17,7 +17,7 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%# Add the my dashboard or my profile link here in the link_to %>
-            <%= link_to "#{current_user.username}", root_path, class: "nav-link pe-4 text-dark" %>
+            <p><%= current_user.username %></p>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://www.caribbeannationalweekly.com/wp-content/uploads/2020/09/Female-Avatar-300X300-01.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

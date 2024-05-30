@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :items, only: %i[show new create] do
     resources :rental, only: :create
   end
+
+  get '/about_us', to: "pages#about_us"
+  get '/contact_us', to: "pages#contact_us"
+  get '/terms_of_services', to: "pages#terms_of_services"
 end

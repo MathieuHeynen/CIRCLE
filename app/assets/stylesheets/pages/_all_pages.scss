@@ -1,5 +1,5 @@
 .main-content{
-  margin-top: 100px;
+  margin-top: 35px;
   margin-bottom: 75px;
 }
 
@@ -7,6 +7,7 @@ h1 {
   font-size: 50px;
   font-weight: 700;
   margin-top: 70px;
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -32,4 +33,10 @@ p {
 
 .footer {
   padding: 0;
+}
+
+.tos li {
+  text-decoration: none;
+  list-style-type: none;
+  padding-left: 0;
 }

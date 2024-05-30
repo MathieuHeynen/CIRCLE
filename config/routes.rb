@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/about_us', to: "pages#about_us"
   get '/contact_us', to: "pages#contact_us"
+  post '/contact_us', to: "pages#create"
   get '/terms_of_services', to: "pages#terms_of_services"
 
   get '/dashboard', to: 'dashboard#show'

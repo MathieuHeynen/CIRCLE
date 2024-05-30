@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :items, only: %i[show new create] do
-    resources :rental, only: :create
+    resources :rentals, only: :create
   end
 
   get '/about_us', to: "pages#about_us"

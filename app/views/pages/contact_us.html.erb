@@ -1,0 +1,10 @@
+<div class="container bs5-grid-row p-0">
+  <h2>Contact</h2>
+  <%= render 'form' %>
+</div>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>

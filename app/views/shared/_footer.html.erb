@@ -1,21 +1,25 @@
 <hr class="mx-5">
-<div class="container mt-5 d-flex justify-content-between">
+<div class="footer container mt-5 d-flex justify-content-between">
   <div class="d-flex align-items-start flex-column mb-4">
     <div class="d-flex align-items-center justify-content-center mb-auto">
-      <%= image_tag "CIRCLE_logo.png", class: 'logo'%>
-      <p class="m-0 ps-2">CIRCLE</p>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <div class="d-flex align-items-center">
+          <%= image_tag "CIRCLE_logo.png", class: 'logo'%>
+          <h3 class="m-0 ps-2">CIRCLE</h3>
+        </div>
+      <% end %>
     </div>
     <div>
       <ul class="footer-circle d-flex">
-        <li class="me-4"><i class="fa-brands fa-facebook"></i></li>
-        <li class="me-4"><i class="fa-brands fa-linkedin"></i></li>
-        <li class="me-4"><i class="fa-brands fa-youtube"></i></li>
-        <li class="me-4"><i class="fa-brands fa-instagram"></i></li>
+        <li class="me-4"><a href="https://www.dropbox.com/scl/fi/atd6r52q427tlpb3gfxb7/IMG_0995.jpg?rlkey=ao8rtgkej37i78yxh8hn40yeb&st=olmz49fm&dl=0" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+        <li class="me-4"><a href="https://www.dropbox.com/scl/fi/atd6r52q427tlpb3gfxb7/IMG_0995.jpg?rlkey=ao8rtgkej37i78yxh8hn40yeb&st=olmz49fm&dl=0" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li class="me-4"><a href="https://www.dropbox.com/scl/fi/atd6r52q427tlpb3gfxb7/IMG_0995.jpg?rlkey=ao8rtgkej37i78yxh8hn40yeb&st=olmz49fm&dl=0" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+        <li class="me-4"><a href="https://www.dropbox.com/scl/fi/atd6r52q427tlpb3gfxb7/IMG_0995.jpg?rlkey=ao8rtgkej37i78yxh8hn40yeb&st=olmz49fm&dl=0" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
       </ul>
     </div>
   </div>
   <div>
-    <ul class="footer-circle">
+    <ul class="footer-circle text-end">
       <li class="mb-4">About Us</li>
       <li class="mb-4">Contact</li>
       <li class="mb-4">Terms of Service</li>

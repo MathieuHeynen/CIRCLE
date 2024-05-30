@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show]
-  before_action :authenticate_user!, only: %i[new create]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @items = Item.all
   end
 
   def show
+    @rental = Rental.new
   end
 
   def new

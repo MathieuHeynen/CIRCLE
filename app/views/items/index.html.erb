@@ -6,16 +6,20 @@
   </div>
 
 <h2>Products</h2>
-<div class="mt-5 d-flex justify-content-between">
+
+<div class="mt-5 row my-2 d-flex flex-wrap justify-content-between">
     <% @items.each do |item| %>
-      <div class="card border-light mb-3 rounded-4" style="width: 18rem;">
-        <%= cl_image_tag item.photo.key %>
-        <div class="card-body">
-          <h5 class="card-title"><%= item.name %></h5>
-          <p class="card-text"><%= item.description %></p>
-          <p class="card-text"><%= item.price %></p>
-          <%= link_to "Rent", item_path(item), class: "btn btn-dark rounded-4" %>
+      <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+        <div class="card border-light h-60">
+          <%= cl_image_tag item.photo.key, class: 'image-cover', height: 250 %>
+          <div class="card-body">
+            <h5 class="card-title"><%= item.name %></h5>
+            <p class="card-description"><%= item.description %></p>
+            <p class="card-price">Rent from: <%= item.price %> € / day</p>
+            <%= link_to "Details", item_path(item), class: "btn btn-dark rounded-4" %>
+          </div>
         </div>
       </div>
     <% end %>
+  </div>
 </div>

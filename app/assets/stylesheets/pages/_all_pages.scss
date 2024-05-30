@@ -35,8 +35,17 @@ p {
   padding: 0;
 }
 
+.tos ul {
+  padding-left: 5px;
+}
+
 .tos li {
   text-decoration: none;
   list-style-type: none;
-  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.tos {
+  margin-top: 18px;
+  margin-bottom: 10px;
 }

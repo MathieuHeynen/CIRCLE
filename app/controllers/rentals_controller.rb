@@ -1,7 +1,6 @@
 class RentalsController < ApplicationController
   # creating a new item rental
 
-
   def create
     @item = Item.find(params[:item_id])
     @rental = Rental.new(rental_params)

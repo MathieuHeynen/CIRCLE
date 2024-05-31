@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
 
+
   resources :items, only: %i[show new create edit update destroy] do
     resources :rentals, only: :create
   end
+
+  resources :rentals, only: %i[destroy]
 
   get '/about_us', to: "pages#about_us"
   get '/contact_us', to: "pages#contact_us"

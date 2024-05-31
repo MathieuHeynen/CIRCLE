@@ -18,6 +18,7 @@
             <p><%= rental.item.description %></p>
             <p>Renting from <%= rental.start_date.strftime("%d-%m-%y") %> to <%= rental.end_date.strftime("%d-%m-%y") %></p>
             <p>Total amount: <%= (rental.end_date - rental.start_date).to_i / 60 / 60 / 24 * rental.item.price %> EUR</p>
+            <%= link_to "Cancel", rental_path(rental), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark rounded-4 mt-4"%>
           </div>
         </div>
       </div>

@@ -15,6 +15,12 @@ class RentalsController < ApplicationController
     end
   end
 
+  def destroy
+    @rental = Rental.find(params[:id])
+    @rental.destroy
+    redirect_to dashboard_path, notice: 'Your rental has been cancelled'
+  end
+
   private
 
   def rental_params

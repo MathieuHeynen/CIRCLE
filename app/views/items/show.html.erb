@@ -1,86 +1,34 @@
-<%# <% if notice %>
-  <%# <h5><%= notice</h5> %>
-<%# <% end %>
-  <div class="d-flex mt-4">
-
-    <div class="w-50">
-      <% if @item.photo.attached? %>
-        <%= cl_image_tag @item.photo.key, height: 600, width: 600, crop: :fill %>
+<div class="d-flex row">
+  <div  class="col-sm-12 col-lg-6 mt-4">
+    <% if @item.photo.attached? %>
+      <%= cl_image_tag @item.photo.key, id:"image-show", width: 1200, class: "img-fluid" %>
+    <% else %>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" alt="No image available" class="img-fluid img-thumbnail rounded-4">
+    <% end %>
+  </div>
+  <div class="card border border-0 col-sm-12 col-lg-6 mt-4">
+    <div class="card-body p-0">
+      <h2 class="pb-4 mt-0"><%= @item.name.capitalize %></h2>
+      <h5 class="pb-3 fw-lighter text-muted">Brand: <%= @item.brand %></h5>
+      <h5 class="pb-2 fw-lighter text-muted">Size: <%= @item.size %></h5>
+      <p class="pb-3 text-muted"><%= @item.description %></p>
+      <h5 class="pb-4 fw-light">Rent from: <%= @item.price %> EUR / day</h5>
+      <% if @item.user == current_user %>
+      <p class="pb-4 fw-normal">This beautiful item is yours! </p>
       <% else %>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" alt="No image available" class="img-fluid img-thumbnail rounded-4">
+        <%# Here we want to show a form with the dates the user wants to rent %>
+        <div >
+          <%= simple_form_for [@item, @rental] do |f| %>
+            <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.submit "Request rental", class: "btn btn-dark rounded-4" %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-
-    <div class="card w-50 px-4 border border-0">
-      <div class="card-body">
-        <h2 class="pb-4 mt-0"><%= @item.name.capitalize %></h2>
-        <h5 class="pb-3 fw-lighter text-muted">Brand: <%= @item.brand %></h5>
-        <h5 class="pb-2 fw-lighter text-muted">Size: <%= @item.size %></h5>
-        <p class="pb-3 text-muted"><%= @item.description %></p>
-        <h5 class="pb-4 fw-light">Rent from: <%= @item.price %> EUR / day</h5>
-
-        <% if @item.user == current_user %>
-          <p class="pb-2 fw-normal">This beautiful item is yours! </p>
-          <%= link_to "Edit", edit_item_path, class: "btn btn-dark rounded-4"%>
-          <%= link_to "Delete", item_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark rounded-4"%>
-
-        <% else %>
-          <%# Here we want to show a form with the dates the user wants to rent %>
-          <div class="w-50">
-            <%= simple_form_for [@item, @rental] do |f| %>
-              <%= f.input :start_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-              <%= f.input :end_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-              <%= f.submit "Request rental", class: "btn btn-dark rounded-4" %>
-            <% end %>
-          </div>
-        <% end %>
-
-        <!-- Modal -->
-        <%# If a user is logged in and requests rental we want to show dates, total price, and booking confirmed %>
-        <%# <% if user_signed_in? %>
-          <%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> %>
-            <%# <div class="modal-dialog"> %>
-              <%# <div class="modal-content"> %>
-                <%# <div class="modal-header"> %>
-                  <%# <h1 class="modal-title fs-5" id="exampleModalLabel">Request rental</h1> %>
-                  <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
-                <%# </div> %>
-                <%# <div class="modal-body"> %>
-                  <%# </p>Your rental has been requested!<p> %>
-                <%# </div> %>
-                <%# <div class="modal-footer"> %>
-                  <%# <button type="button" class="btn btn-dark rounded-4" data-bs-dismiss="modal">Close</button> %>
-                <%# </div> %>
-              <%# </div> %>
-            <%# </div> %>
-          <%# </div> %>
-
-          <%# When a user is not logged in we want to guide him to log in  %>
-        <%# <% else %>
-            <%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> %>
-              <%# <div class="modal-dialog"> %>
-                <%# <div class="modal-content"> %>
-                  <%# <div class="modal-header"> %>
-                    <%# <h1 class="modal-title fs-5" id="exampleModalLabel">Request rental</h1> %>
-                    <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
-                  <%# </div> %>
-                  <%# <div class="modal-body"> %>
-                    <%# </p>You need to be logged in to request a rental!<p> %>
-                  <%# </div> %>
-                  <%# <div class="modal-footer"> %>
-                    <%# <button type="button" class="btn btn-light rounded-4" data-bs-dismiss="modal">Close</button> %>
-                    <%# <%= link_to "Log in", new_user_session_path, class: "btn btn-dark rounded-4" %>
-                  <%# </div> %>
-                <%# </div> %>
-              <%# </div> %>
-            <%# </div> %>
-        <%# <% end %>
-      <%# </div> %>
-    </div>
-
   </div>
 </div>

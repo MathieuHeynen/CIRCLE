@@ -57,3 +57,15 @@ p {
 #image_team {
   margin-bottom: 30;
 }
+
+#hidde-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+}
+
+#image-show {
+  object-fit: cover;
+  height: 600px;
+}

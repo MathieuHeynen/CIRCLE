@@ -24,6 +24,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    find_item
+  end
+
+  def update
+    find_item
+    @item.update(item_params)
+    redirect_to item_path(@item)
+  end
+
+  def destroy
+    find_item
+    @item.destroy
+    redirect_to dashboard_path, status: :see_other
+  end
+
   private
 
   def find_item

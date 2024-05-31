@@ -13,8 +13,12 @@
       <h5 class="pb-2 fw-lighter text-muted">Size: <%= @item.size %></h5>
       <p class="pb-3 text-muted"><%= @item.description %></p>
       <h5 class="pb-4 fw-light">Rent from: <%= @item.price %> EUR / day</h5>
+
       <% if @item.user == current_user %>
-      <p class="pb-4 fw-normal">This beautiful item is yours! </p>
+        <p class="pb-2 fw-normal">This beautiful item is yours! </p>
+        <%= link_to "Edit", edit_item_path(@item), class: "btn btn-dark rounded-4" %>
+        <%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark rounded-4" %>
+
       <% else %>
         <%# Here we want to show a form with the dates the user wants to rent %>
         <div >

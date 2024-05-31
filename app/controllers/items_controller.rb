@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @items = Item.all
+    @items = Item.all.order(created_at: :desc)
   end
 
   def show

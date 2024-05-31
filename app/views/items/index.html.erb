@@ -8,21 +8,21 @@
 <h2>Products</h2>
 
 <div class="mt-5 row my-2 d-flex flex-wrap">
-    <% @items.each do |item| %>
-        <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-          <div>
-
-            <%= cl_image_tag item.photo.key, class: 'image-cover', height: 250 %>
-
-            <div class="mt-4">
-              <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-description"><%= item.description %></p>
-            </div>
-            <div>
-              <p class="card-price">Rent from: <%= item.price %> EUR / day</p>
-              <%= link_to "Details", item_path(item), class: "btn btn-dark rounded-4 stretched-link mb-3" %>
-            </div>
-          </div>
+  <% @items.each do |item| %>
+    <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+      <div>
+        <%= link_to item_path(item) do %>
+          <%= cl_image_tag item.photo.key, class: 'image-cover', height: 250 %>
+        <% end %>
+        <div class="mt-4">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-description"><%= item.description %></p>
         </div>
-    <% end %>
+        <div>
+          <p class="card-price">Rent from: <%= item.price %> EUR / day</p>
+          <%= link_to "Details", item_path(item), class: "btn btn-dark rounded-4 mb-3" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

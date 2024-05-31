@@ -14,6 +14,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+          <div class="d-flex align-items-center">
+
+          <li class="nav-item search me-4 pt-1">
+                <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+                  <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Search for an item" %>
+                  <%= submit_tag "🔎", name: "", class: "btn btn-light rounded-4" %>
+                <% end %>
+          </li>
+        </div>
+
         <% if user_signed_in? %>
          <div class ="d-flex align-items-center justify-content-center">
           <li class="nav-item active">
@@ -30,7 +43,7 @@
           </li>
         </div>
         <% else %>
-          <div class="d-flex">
+          <div class="d-flex pt-1">
             <li class="nav-item">
               <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link text-dark pe-4 text-decoration-none" %>
             </li>
